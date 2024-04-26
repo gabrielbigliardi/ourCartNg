@@ -1,6 +1,7 @@
 import { Component, Input, inject } from '@angular/core';
 import { CartItem } from '../../types/cartItem.interface';
 import { CartService } from '../../services/cart.service';
+import { CartFirebaseService } from '../../services/cartFirebase.service';
 
 @Component({
   selector: 'app-item',
@@ -12,8 +13,11 @@ import { CartService } from '../../services/cart.service';
 export class ItemComponent {
   @Input({ required: true }) cartItem!: CartItem;
   cartService = inject(CartService)
+  cartFirebaseService = inject(CartFirebaseService)
 
   removeItem(): void {
-    this.cartService.removeItem(this.cartItem.id)
+    this.cartFirebaseService.removeItem(this.cartItem.id).subscribe(() => {
+      this.cartService.removeItem(this.cartItem.id)
+    })
   }
 }
