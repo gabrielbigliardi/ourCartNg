@@ -1,5 +1,6 @@
 import { Component, OnChanges, SimpleChanges, inject } from '@angular/core';
 import { CartService } from '../../services/cart.service';
+import { CartFirebaseService } from '../../services/cartFirebase.service';
 
 @Component({
   selector: 'app-header',
@@ -10,7 +11,7 @@ import { CartService } from '../../services/cart.service';
 })
 export class HeaderComponent {
   cartService = inject(CartService)
-
+  cartFirebaseService = inject(CartFirebaseService)
   text: string = ''
 
   changeText(event: Event): void {
@@ -20,7 +21,10 @@ export class HeaderComponent {
 
   addItem() {
     console.log('adding ', this.text);
-    this.cartService.addItem(this.text)
+    this.cartFirebaseService.addItem(this.text).subscribe(addedCartId => {
+      this.cartService.addItem(this.text, addedCartId)
+
+    })
     this.text = ''
   }
 }

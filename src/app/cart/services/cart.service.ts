@@ -7,10 +7,10 @@ import { CartItem } from "../types/cartItem.interface";
 export class CartService {
     cartSig = signal<CartItem[]>([])
 
-    addItem(newItem: string): void {
+    addItem(newItem: string, newItemId: string): void {
         const newToAdd: CartItem = {
             name: newItem,
-            id: Math.random().toString(16)
+            id: newItemId
         }
         this.cartSig.update((items) => [...items, newToAdd])
         console.log('item added');
