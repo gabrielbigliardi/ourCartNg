@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnChanges, SimpleChanges, inject } from '@angular/core';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-header',
@@ -8,5 +9,18 @@ import { Component } from '@angular/core';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
+  cartService = inject(CartService)
 
+  text: string = ''
+
+  changeText(event: Event): void {
+    const target = event.target as HTMLInputElement
+    this.text = target.value
+  }
+
+  addItem() {
+    console.log('adding ', this.text);
+    this.cartService.addItem(this.text)
+    this.text = ''
+  }
 }
