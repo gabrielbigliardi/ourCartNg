@@ -54,6 +54,11 @@ button {
     font-family: 'Rubik', sans-serif;
 }
 
+button:hover {
+    background-color: #432000;
+    cursor: pointer;
+}
+
 ul {
     list-style-type: none;
     padding: 0;

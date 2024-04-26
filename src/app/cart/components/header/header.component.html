@@ -1,5 +1,5 @@
 <header>
     <h1>cart</h1>
     <input class="new-item" (keyup.enter)="addItem()" (keyup)="changeText($event)" [value]="text">
-    <button id="add-button">Add to cart</button>
+    <button id="add-button" (click)="addItem()">Add to cart</button>
 </header>
