@@ -3,7 +3,7 @@ import { CartService } from '../../services/cart.service';
 import { CartFirebaseService } from '../../services/cartFirebase.service';
 
 @Component({
-  selector: 'app-header',
+  selector: 'app-cart-header',
   standalone: true,
   imports: [],
   templateUrl: './header.component.html',
@@ -20,11 +20,12 @@ export class HeaderComponent {
   }
 
   addItem() {
-    console.log('adding ', this.text);
+    // console.log('adding ', this.text);
     this.cartFirebaseService.addItem(this.text).subscribe(addedCartId => {
       this.cartService.addItem(this.text, addedCartId)
 
     })
     this.text = ''
   }
+
 }

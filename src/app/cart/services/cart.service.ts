@@ -13,8 +13,8 @@ export class CartService {
             id: newItemId
         }
         this.cartSig.update((items) => [...items, newToAdd])
-        console.log('item added');
-        console.log(this.cartSig());
+        // console.log('item added');
+        // console.log(this.cartSig());
     }
 
     removeItem(id: string): void {

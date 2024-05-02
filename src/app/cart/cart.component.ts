@@ -7,6 +7,7 @@ import { CartFirebaseService } from "./services/cartFirebase.service";
 @Component({
     selector: 'app-cart',
     templateUrl: 'cart.component.html',
+    styleUrl: 'cart.component.scss',
     standalone: true,
     imports: [HeaderComponent, ItemsComponent]
 })
@@ -18,7 +19,6 @@ export class CartComponent implements OnInit {
         this.cartFirebaseService.getCart().subscribe(items => {
             this.cartService.cartSig.set(items)
         })
-        console.log(this.cartService.cartSig());
 
     }
 }

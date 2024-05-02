@@ -5,7 +5,7 @@
         } -->
         @for(cartItem of cartService.cartSig(); track cartItem.id) {
         <!-- <li>{{cartItem.name}}</li> -->
-        <app-item [cartItem]="cartItem"></app-item>
+        <app-item class="cart-item" [cartItem]="cartItem"></app-item>
         }
     </ul>
 </section>
