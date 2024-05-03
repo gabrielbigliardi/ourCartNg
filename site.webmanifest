@@ -1,14 +1,14 @@
 {
-    "name": "Add to Cart",
-    "short_name": "Add to Cart",
+    "name": "Nosso carrinho",
+    "short_name": "Carrinho",
     "icons": [
         {
-            "src": "./assets/aurora03.jpg",
+            "src": "./src/assets/aurora03.jpg",
             "sizes": "192x192",
             "type": "image/png"
         },
         {
-            "src": "./assets/aurora03.jpg",
+            "src": "./src/assets/aurora03.jpg",
             "sizes": "512x512",
             "type": "image/png"
         }
