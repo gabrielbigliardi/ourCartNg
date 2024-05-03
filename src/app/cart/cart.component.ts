@@ -16,9 +16,11 @@ export class CartComponent implements OnInit {
     cartFirebaseService = inject(CartFirebaseService)
 
     ngOnInit() {
+
         this.cartFirebaseService.getCart().subscribe(items => {
             this.cartService.cartSig.set(items)
         })
 
     }
+
 }
